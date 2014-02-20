@@ -1,0 +1,188 @@
+@import 'compass';
+
+// Core variables and mixins
+@import "variables";
+
+// Modify this for custom colors, font-sizes, etc
+@import "mixins";
+
+// Grid system and page structure
+@import "scaffolding";
+@import "grid";
+
+// Base CSS
+@import "type";
+@import "code";
+@import "forms";
+@import "tables";
+
+// Components: Buttons & Alerts
+@import "buttons";
+@import "button-groups";
+
+// Note: alerts share common CSS with buttons and thus have styles in buttons.less
+
+// Components: Nav
+@import "navs";
+@import "navbar";
+
+// Components: Popovers
+@import "modals";
+@import "tooltip";
+@import "popovers";
+
+// Components: Misc
+@import "progress-bars";
+
+// Utility classes
+@import "utilities";
+
+.current-state {
+  &, * {
+    font-size: 25px;
+  }
+}
+
+pre code {
+  font-size: 14px;
+}
+
+h1 {
+  font-size: 65px;
+  line-height: 65px;
+
+  code {
+    font-size: 60px;
+  }
+}
+
+h2 {
+  font-size: 45px;
+  line-height: 45px;
+}
+
+.btn {
+  font-size: 30px;
+  margin: 20px 0;
+  padding: 10px;
+}
+
+.controls {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  a {
+    position: absolute;
+    z-index: 100;
+    bottom: 30px;
+
+    &.previous {
+      left: 30px;
+    }
+
+    &.next {
+      right: 30px;
+    }
+
+    @include single-transition(opacity, 0.5s);
+
+    &.inactive {
+      opacity: 0.25;
+    }
+
+    opacity: 1;
+
+    font-size: 2em;
+  }
+}
+
+.slide, .slide table {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+table {
+  width: 800px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+td {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+pre {
+  text-align: left;
+}
+
+.slide-hide,.slide-show {
+  @include single-transition(all, 0.25s);
+}
+
+.slide-hide {
+  opacity: 1;
+  @include rotate3d(0, 0, 0);
+}
+
+.slide-hide.slide-hide-active {
+  opacity: 0;
+  @include rotate3d(10, 0, 0);
+}
+
+.slide-show {
+  opacity: 0;
+  @include rotate3d(10, 0, 0);
+}
+
+.slide-show.slide-show-active {
+  opacity: 1;
+  @include rotate3d(0, 0, 0);
+}
+
+.mind_blown-hide, .mind_blown-show {
+  @include single-transition(all, 1.0s);
+}
+
+.mind_blown-hide {
+  display: none;
+}
+
+.mind_blown-hide.mind_blown-hide-active {
+  display: none;
+}
+
+.mind_blown-show {
+  @include rotate3d(-180, -180, -30);
+  opacity: 0;
+}
+
+.mind_blown-show.mind_blown-show-active {
+  @include rotate3d(0, 0, 0);
+  opacity: 1;
+}
+
+.presentation {
+  position: fixed !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.slide {
+
+}
+
+li {
+  text-align: left;
+  font-size: 150%;
+}

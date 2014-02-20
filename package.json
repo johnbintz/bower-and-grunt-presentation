@@ -1,0 +1,19 @@
+{
+  "name": "bower-and-grunt-presentation",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "grunt": "~0.4.2",
+    "matchdep": "~0.3.0",
+    "grunt-express": "~1.2.1",
+    "grunt-contrib-compass": "~0.7.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-concurrent": "~0.4.3"
+  }
+}

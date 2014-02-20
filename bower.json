@@ -1,0 +1,25 @@
+{
+  "name": "bower-and-grunt-presentation",
+  "version": "0.0.0",
+  "authors": [
+    "John Bintz <john@coswellproductions.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.0",
+    "angular": "~1.2.14-build.2273",
+    "js-beautify": "~1.4.2",
+    "solarized": "~0.1.2",
+    "angular-ui-utils": "bower-keypress",
+    "bootstrap-sass": "~3.0.2",
+    "prismjs": "*",
+    "angular-presentation": "git://github.com/johnbintz/angular-presentation"
+  }
+}

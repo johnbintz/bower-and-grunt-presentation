@@ -1,0 +1,513 @@
+<html lang="en">
+  <head>
+    <title>Bower and Grunt</title>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-utils/keypress.js"></script>
+    <script type="text/javascript" src="bower_components/js-beautify/js/lib/beautify.js"></script>
+    <script type="text/javascript" src="bower_components/js-beautify/js/lib/beautify-html.js"></script>
+    <script type="text/javascript" src="bower_components/js-beautify/js/lib/beautify-css.js"></script>
+    <script type="text/javascript" src="bower_components/prismjs/prism.js"></script>
+    <script type="text/javascript" src="bower_components/prismjs/components/prism-bash.js"></script>
+    <script type="text/javascript" src="bower_components/prism-langs/prism.ruby.js"></script>
+    <script type="text/javascript" src="bower_components/angular-presentation/dist/angular-presentation.js"></script>
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="bower_components/angular-presentation/styles/solarized-dark.css" />
+    <link rel="stylesheet" href="bower_components/prismjs/prism-coy.css" />
+  </head>
+  <body ng-app="presentation" ui-keydown="{left: 'options.previousSlide()', right: 'options.nextSlide()', space: 'options.nextSlide()'}">
+    <script type="text/ng-template" id="presentation.html">
+      <div class="presentation"><div class="presentation-wrap" ng-transclude /></div>
+    </script>
+
+    <script type="text/ng-template" id="slide.html">
+      <article class="slide" ng-animate="'slide'" ng-show="options.currentSlide == id">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><td valign="center" ng-transclude /></tr>
+        </table>
+      </article>
+    </script>
+
+    <script type="text/ng-template" id="title.html">
+      <div>
+        <h1 ng-bind-html="title"></h1>
+      </div>
+    </script>
+
+    <script type="text/ng-template" id="subtitle.html">
+      <h2 ng-bind-html="subtitle" />
+    </script>
+
+    <script type="text/ng-template" id="controls.html">
+      <aside class="controls">
+        <a class="previous" href="#previous" ng-class="{ inactive: !options.hasPrevious() }" ng-click="options.previousSlide()">Previous</a>
+        <a class="next" href="#next" ng-class="{ inactive: !options.hasNext() }" ng-click="options.nextSlide()">Next</a>
+      </aside>
+    </script>
+
+    <script type="text/ng-template" id="code_displayer.html">
+      <pre><code></code></pre>
+    </script>
+
+    <presentation>
+      <controls></controls>
+
+      <slide>
+        <title>Bower and Grunt</title>
+        <subtitle>An introduction</subtitle>
+      </slide>
+
+      <slide>
+        <img src="images/bower-logo.png" />
+      </slide>
+
+      <slide>
+        <title>Dependency management tool</title>
+        <subtitle>specifically for web assets</subtitle>
+      </slide>
+
+      <slide>
+        <title>jQuery, AngularJS, and Bootstrap</title>
+      </slide>
+
+      <slide>
+        <img src="images/jquery_download.png" />
+      </slide>
+
+      <slide>
+        <img src="images/angularjs_download.png" />
+      </slide>
+
+      <slide>
+        <img src="images/bootstrap_download.png" />
+      </slide>
+
+      <slide>
+        <title><code>mkdir js</code></title>
+      </slide>
+
+      <slide>
+        <title><code>mkdir ext/js</code></title>
+      </slide>
+
+      <slide>
+        <pre language="html">
+          &lt;head>
+            &lt;link rel="stylesheet" href="ext/css/bootstrap.min.css" />
+            &lt;script src="ext/js/jquery-1.10.01.min.js">&lt;/script>
+            &lt;script src="ext/js/angular-1.2.15.min.js">&lt;/script>
+            &lt;script src="ext/js/bootstrap.min.js">&lt;/script>
+          &lt;/head>
+        </pre>
+      </slide>
+
+      <slide>
+        <title>yay new versions</title>
+      </slide>
+
+      <slide>
+        <img src="images/jquery_download.png" />
+      </slide>
+
+      <slide>
+        <img src="images/angularjs_download.png" />
+      </slide>
+
+      <slide>
+        <img src="images/bootstrap_download.png" />
+      </slide>
+
+      <slide>
+        <title>Stop.</title>
+      </slide>
+
+      <slide>
+        <subtitle><code>bower install --save jquery</code></subtitle>
+        <subtitle><code>bower install --save angular</code></subtitle>
+        <subtitle><code>bower install --save bootstrap</code></subtitle>
+      </slide>
+
+      <slide>
+        <title>Command line time!</title>
+      </slide>
+
+      <slide>
+        <subtitle><a href="http://cli.learncodethehardway.org/">http://cli.learncodethehardway.org/</a></subtitle>
+      </slide>
+
+      <slide>
+        <title><code>which node</code></title>
+      </slide>
+
+      <slide>
+        <img src="images/nodejs_download.png" />
+      </slide>
+
+      <slide>
+        <title><code>npm install -g bower</code></title>
+      </slide>
+
+      <slide>
+        <subtitle><code>cd ~/our/project/directory</code></subtitle>
+      </slide>
+
+      <slide>
+        <title><code>bower init</code></title>
+      </slide>
+
+      <slide>
+        <script type="text/code-grabber" for="bower.json">
+{
+  name: 'directory',
+  version: '0.0.0',
+  authors: [
+    'John Bintz <john@coswellproductions.com>'
+  ],
+  license: 'MIT',
+  ignore: [
+    '**/.*',
+    'node_modules',
+    'bower_components',
+    'test',
+    'tests'
+  ]
+}
+        </script>
+
+        <title><code>bower.json</code></title>
+        <code-displayer for="bower.json" language="json"></code-displayer>
+      </slide>
+
+      <slide>
+        <subtitle><code>bower install --save jquery</code></subtitle>
+      </slide>
+
+      <slide>
+        <title><code>--save</code></title>
+        <subtitle>Save this package's info in <code>bower.json</code></subtitle>
+      </slide>
+
+      <slide>
+        <subtitle><code>bower_components/</code></subtitle>
+      </slide>
+
+      <slide>
+        <pre language="html">
+          &lt;head>
+            &lt;script src="bower_components/jquery/dist/jquery.min.js">&lt;/script>
+          &lt;/head>
+        </pre>
+      </slide>
+
+      <slide>
+        <subtitle><code>bower install --save angular</code></subtitle>
+      </slide>
+
+      <slide>
+        <subtitle><code>bower install --save bootstrap</code></subtitle>
+      </slide>
+
+      <slide>
+        <pre language="html">
+          &lt;head>
+            &lt;link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+            &lt;script src="bower_components/jquery/dist/jquery.min.js">&lt;/script>
+            &lt;script src="bower_components/jquery/angular.min.js">&lt;/script>
+            &lt;script src="bower_components/bootstrap/dist/js/bootstrap.min.js">&lt;/script>
+          &lt;/head>
+        </pre>
+      </slide>
+
+      <slide>
+        <title>yay new versions</title>
+      </slide>
+
+      <slide>
+        <subtitle><code>bower update</code></subtitle>
+      </slide>
+
+      <slide>
+        <pre language="html">
+          &lt;head>
+            &lt;link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+            &lt;script src="bower_components/jquery/dist/jquery.min.js">&lt;/script>
+            &lt;script src="bower_components/jquery/angular.min.js">&lt;/script>
+            &lt;script src="bower_components/bootstrap/dist/js/bootstrap.min.js">&lt;/script>
+          &lt;/head>
+        </pre>
+      </slide>
+
+      <slide>
+        <title>Simple!</title>
+      </slide>
+
+      <slide>
+        <title>Sass Bootstrap?</title>
+      </slide>
+
+      <slide>
+        <subtitle><code>bower install --save bootstrap-sass</code></subtitle>
+      </slide>
+
+      <slide>
+        <pre language="sass">
+          @import('bootstrap');
+
+          h1 {
+            .cats { color: green }
+            .dogs { color: blue }
+          }
+        </pre>
+      </slide>
+
+      <slide>
+        <pre language="html">
+          &lt;head>
+            &lt;link rel="stylesheet" href="output-css/application.css" />
+            &lt;script src="bower_components/jquery/dist/jquery.min.js">&lt;/script>
+            &lt;script src="bower_components/jquery/angular.min.js">&lt;/script>
+            &lt;script src="bower_components/bootstrap/dist/js/bootstrap.min.js">&lt;/script>
+          &lt;/head>
+        </pre>
+      </slide>
+
+      <slide>
+        <subtitle>How to make that CSS file easily?</subtitle>
+      </slide>
+
+      <slide>
+        <subtitle><code>compass watch</code></subtitle>
+      </slide>
+
+      <slide>
+        <img src="images/grunt-logo.png" />
+      </slide>
+
+      <slide>
+        <title>JavaScript Task Runner</title>
+        <subtitle>for development &amp; pre-production</subtitle>
+      </slide>
+
+      <slide>
+        <ul>
+          <li><code>make</code></li>
+          <li><code>rake</code></li>
+          <li><code>guard</code></li>
+        </ul>
+      </slide>
+
+      <slide>
+        <subtitle>Tasks are written in JavaScript</subtitle>
+      </slide>
+
+      <slide>
+        <title>Yeoman</title>
+      </slide>
+
+      <slide>
+        <subtitle>You're going to be looking at one eventually</subtitle>
+      </slide>
+
+      <slide>
+        <title><code>Gruntfile</code></title>
+      </slide>
+
+      <slide>
+        <pre language="javascript">
+          module.exports = function(grunt) {
+            require('matchdep').filter('grunt-*').forEach(grunt.loadNpmTasks);
+
+            grunt.initConfig({
+              compass: {
+                dist: {
+                  options: {
+                    config: 'config/compass.rb'
+                  }
+                }
+              },
+              watch: {
+                compass: {
+                  files: [ 'sass/*.scss' ],
+                  tasks: [ 'compass' ]
+                }
+              }
+            });
+
+            grunt.registerTask('default', 'watch:compass')
+          };
+        </pre>
+      </slide>
+
+      <slide>
+        <subtitle>whoa man slow down there's a lot going on there</subtitle>
+      </slide>
+
+      <slide>
+        <title>Line by line</title>
+      </slide>
+
+      <slide>
+        <subtitle>"This is a Gruntfile"</subtitle>
+        <pre language="javascript">
+          module.exports = function(grunt) {
+        </pre>
+      </slide>
+
+      <slide>
+        <subtitle>"Load in tasks from any npm modules that start with grunt-"</subtitle>
+        <pre language="javascript">
+          require('matchdep').filter('grunt-*').forEach(grunt.loadNpmTasks);
+        </pre>
+      </slide>
+
+      <slide>
+        <subtitle>A little trick...</subtitle>
+      </slide>
+
+      <slide>
+        <pre language="javascript">
+          grunt.loadNpmTasks('grunt-contrib-compass');
+          grunt.loadNpmTasks('grunt-contrib-watch');
+        </pre>
+      </slide>
+
+      <slide>
+        <subtitle>(that's what computers are for)</subtitle>
+      </slide>
+
+      <slide>
+        <title>Global npm installation</title>
+        <subtitle><code>npm install -g bower</code></subtitle>
+      </slide>
+
+      <slide>
+        <title>Project-specific npm installation</title>
+        <subtitle><code>npm install --save grunt</code></subtitle>
+      </slide>
+
+      <slide>
+        <pre language="bash">
+          npm install --save grunt-contrib-compass
+          npm install --save grunt-contrib-watch
+        </pre>
+      </slide>
+
+      <slide>
+        <subtitle><code>npm install --save matchdep</code></subtitle>
+      </slide>
+
+      <slide>
+        <pre language="javascript">
+          require('matchdep').filter('grunt-*').forEach(grunt.loadNpmTasks);
+        </pre>
+      </slide>
+
+      <slide>
+        <subtitle>(neat)</subtitle>
+      </slide>
+
+      <slide>
+        <title>"Configure the pre-designed tasks..."</title>
+        <pre language="javascript">
+          grunt.initConfig({
+        </pre>
+      </slide>
+
+      <slide>
+        <title>"...like Compass..."</title>
+        <pre language="javascript">
+          compass: {
+            dist: {
+              options: {
+                config: 'config/compass.rb'
+              }
+            }
+          },
+        </pre>
+      </slide>
+
+      <slide>
+        <title><code>config/compass.rb</code></title>
+        <pre language="ruby">
+          sass_dir = "sass"
+          css_dir = "output-css"
+          add_import_path "bower_components/bootstrap-sass/lib"
+        </pre>
+      </slide>
+
+      <slide>
+        <title><code>grunt compass:dist</code></title>
+      </slide>
+
+      <slide>
+        <title>"...and watching file updates..."</title>
+        <pre language="javascript">
+          watch: {
+            compass: {
+              files: [ 'sass/*.scss' ],
+              tasks: [ 'compass' ]
+            }
+          }
+        </pre>
+      </slide>
+
+      <slide>
+        <title><code>grunt watch:compass</code></title>
+      </slide>
+
+      <slide>
+        <title>"Let's make that the default."</title>
+        <pre language="javascript">
+          grunt.registerTask('default', 'watch:compass')
+        </pre>
+      </slide>
+
+      <slide>
+        <title><code>grunt</code></title>
+      </slide>
+
+      <slide>
+        <pre language="javascript">
+          module.exports = function(grunt) {
+            require('matchdep').filter('grunt-*').forEach(grunt.loadNpmTasks);
+
+            grunt.initConfig({
+              compass: {
+                dist: {
+                  options: {
+                    config: 'config/compass.rb'
+                  }
+                }
+              },
+              watch: {
+                compass: {
+                  files: [ 'sass/*.scss' ],
+                  tasks: [ 'compass' ]
+                }
+              }
+            });
+
+            grunt.registerTask('default', 'watch:compass')
+          };
+        </pre>
+      </slide>
+
+      <slide>
+        <title>Can't cover all of Grunt tonight</title>
+      </slide>
+
+      <slide>
+        <subtitle>(just a taste)</subtitle>
+      </slide>
+
+      <slide>
+        <subtitle>This presentation uses both Bower and Grunt!</subtitle>
+      </slide>
+
+      <slide>
+        <subtitle>https://github.com/johnbintz/bower-and-grunt-presentation</subtitle>
+      </slide>
+    </presentation>
+  </body>
+</html>
+
